@@ -4,33 +4,46 @@ using UnityEngine;
 
 public class Punch : MonoBehaviour
 {
-    [SerializeField] private int damage_ = 10;
+    [SerializeField] private Animator animator;
+    private bool isPunching = false; 
+    [SerializeField] private int _damage;
 
-    public Animator animator;
+    [SerializeField] private float damageInterval = 0.5f; 
+
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Colisione2");
         IDamageable damageable = other.GetComponent<IDamageable>();
-        if (damageable != null)
+        if (damageable != null && !isPunching)
         {
+            isPunching = true;
+
+            // Reproduce la animación de golpe si hay un componente Animator
             if (animator != null)
             {
-                // Reproduce la animación trigger
-                animator.SetTrigger("Punch");
+                Debug.Log("Reproduzco animacion");
+                animator.SetBool("Punch", true);
             }
 
-            StartCoroutine(ApplyDamageAfterAnimation(damageable, damage_));
-
+            // Inicia la corrutina para aplicar daño cada cierto intervalo mientras se mantiene la colisión
+            StartCoroutine(ApplyDamageRepeatedly(damageable));
         }
     }
 
-    private IEnumerator ApplyDamageAfterAnimation(IDamageable damageable, int damage)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        yield return new WaitForSeconds(0.5f); // Ajusta el tiempo según la duración de tu animación
-        damageable.TakeDamage(damage);
-        Debug.Log("Hice Daño2");
+        isPunching = false; // Se restablece cuando deja de haber colisión para permitir otro golpe
+        animator.SetBool("Punch", false);
+    }
+
+    private System.Collections.IEnumerator ApplyDamageRepeatedly(IDamageable damageable)
+    {
+        while (isPunching)
+        {
+            damageable.TakeDamage(_damage); // Aplica el daño (ajusta según tus necesidades)
+            yield return new WaitForSeconds(damageInterval);
+        }
     }
 
 }
