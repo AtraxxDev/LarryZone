@@ -28,7 +28,7 @@ public class Health : MonoBehaviour, IDamageable
         
         CurrentHealth -= amount;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
-        Debug.Log("Me hicieron daño");
+        Debug.Log("Me hicieron daño" + gameObject.name);
         
 
         if (CurrentHealth <= 0) 
