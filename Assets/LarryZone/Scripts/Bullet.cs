@@ -9,10 +9,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Colisione");
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null )
         {
             damageable.TakeDamage(damage_);
+            Debug.Log("Hice Daño");
             Destroy(gameObject);
         }
     }
