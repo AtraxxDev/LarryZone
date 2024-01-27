@@ -89,7 +89,15 @@ public class EnemySpawner : MonoBehaviour
         if (timeBewteenSpawns > 0.5f)
         {
             timeBewteenSpawns -= difficultyIncreaseRate;
-            noOfEnemies += 2;
+            if (waveNumber > 6)
+            {
+                noOfEnemies += 6;
+            }
+            else
+            {
+                noOfEnemies += 2;
+            }
+            
         }
         
     }
