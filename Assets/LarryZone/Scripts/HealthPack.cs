@@ -6,18 +6,18 @@ public class HealthPack : MonoBehaviour
 {
     [SerializeField] private int healAmount_ = 20;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")) // Ajusta la etiqueta según tus necesidades
         {
             // Aplica la regeneración de vida al jugador
 
-            /*PlayerController player = other.GetComponent<PlayerController>();
-            if (player != null)
+            Health playerHealth = other.GetComponent<Health>();
+            if (playerHealth != null)
             {
-                player.Heal(healAmount);
+                playerHealth.Heal(healAmount_);
                 Destroy(gameObject); // Destruye el botiquín después de ser recogido
-            }*/
+            }
 
         }
     }

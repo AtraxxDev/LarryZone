@@ -6,13 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     float speed;
+    [SerializeField]private float currentSpeed;
     public GameObject bulletPrefab;
 
     private float shootingDelay = 1f;
     private float timePassed = 0f;
 
+
     private void Start()
     {
+        currentSpeed = speed;
         timePassed = shootingDelay;
     }
 
@@ -40,7 +43,20 @@ public class PlayerMovement : MonoBehaviour
         playerInput.x = Input.GetAxis("Horizontal");
         playerInput.y = Input.GetAxis("Vertical");
         playerInput = Vector2.ClampMagnitude(playerInput, 1f);
-        Vector3 velocity = new Vector3(playerInput.x, playerInput.y, 0.0f) * speed;
+        Vector3 velocity = new Vector3(playerInput.x, playerInput.y, 0.0f) * currentSpeed;
         transform.position += velocity * Time.deltaTime;
     }
+
+    public void ApplySpeedBoost(float speedBoost, float duration)
+    {
+        StartCoroutine(SpeedBoostCoroutine(speedBoost, duration));
+    }
+
+    private IEnumerator SpeedBoostCoroutine(float speedBoost, float duration)
+    {
+        currentSpeed += speedBoost;
+        yield return new WaitForSeconds(duration);
+        currentSpeed -= speedBoost;
+    }
+
 }

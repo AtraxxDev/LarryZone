@@ -55,6 +55,10 @@ public class Health : MonoBehaviour, IDamageable
         }
     }
 
-
+    public void Heal(int amount)
+    {
+        CurrentHealth += amount;
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
+    }
 
 }
