@@ -6,12 +6,37 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+
+    private static ScoreManager instance;
+
     private static int score;
     private static string scoreString;
     private static int highScore;
     private static string highScoreString;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private int enemyScoreValue;
+
+    public static ScoreManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                // Si la instancia no existe, intenta encontrarla en la escena
+                instance = FindObjectOfType<ScoreManager>();
+
+                // Si no se encuentra, crea un nuevo objeto para la instancia
+                if (instance == null)
+                {
+                    GameObject go = new GameObject("ScoreManager");
+                    instance = go.AddComponent<ScoreManager>();
+                }
+            }
+
+            return instance;
+        }
+    }
+
     void Start()
     {
         LoadHighScore();

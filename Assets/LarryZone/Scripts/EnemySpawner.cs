@@ -7,10 +7,10 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private float timeBetweenWaves;
     [SerializeField] private float timeBewteenSpawns;
-    [SerializeField] private List<BoxCollider2D> enemySpawnList;
+    [SerializeField] private List<Transform> spawnPoints; // Cambiado a lista de Transforms
     private float difficultyIncreaseRate;
     private float timeUntilSpawn;
     private float timeUntilWave;
@@ -18,9 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private int noOfEnemies;
     [SerializeField] private TextMeshProUGUI waveText;
     private float randomEnemyTime;
-    // Start is called before the first frame update
-    
-    
+
     void Start()
     {
         timeUntilWave = 0;
@@ -29,10 +27,8 @@ public class EnemySpawner : MonoBehaviour
         noOfEnemies = 4;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
         timeUntilWave -= Time.deltaTime;
         if (timeUntilWave > 0)
         {
@@ -51,36 +47,35 @@ public class EnemySpawner : MonoBehaviour
             <= 2 => Color.red,
             _ => Color.white
         };
-        waveText.text =" wave " +waveNumber;
+        waveText.text = " wave " + waveNumber;
     }
 
     private void SpawnWave()
     {
         if (timeUntilSpawn <= 0)
         {
-            
             timeUntilSpawn = timeBewteenSpawns;
             SpawnEnemy();
             switch (randomEnemyTime)
             {
                 case <= 0:
-                {
-                    var randomEnemyNumber = Random.Range(0, noOfEnemies);
-                    SpawnEnemies(randomEnemyNumber);
-                    randomEnemyTime = Random.Range(0.5f, timeBewteenSpawns);
-                    break;
-                }
+                    {
+                        var randomEnemyNumber = Random.Range(0, noOfEnemies);
+                        SpawnEnemies(randomEnemyNumber);
+                        randomEnemyTime = Random.Range(0.5f, timeBewteenSpawns);
+                        break;
+                    }
                 case > 0:
-                    randomEnemyTime --;
+                    randomEnemyTime--;
                     break;
             }
-           
+
         }
         else
         {
             timeUntilSpawn -= Time.deltaTime;
         }
-        
+
     }
     private void ChangeWave()
     {
@@ -97,17 +92,17 @@ public class EnemySpawner : MonoBehaviour
             {
                 noOfEnemies += 2;
             }
-            
+
         }
-        
+
     }
     private void SpawnEnemy()
     {
-        var randomIndex = Random.Range(0, enemySpawnList.Count);
-        var randomPoint = new Vector2(Random.Range(enemySpawnList[randomIndex].bounds.min.x,
-            enemySpawnList[randomIndex].bounds.max.x), Random.Range(enemySpawnList[randomIndex].bounds.min.y, 
-            enemySpawnList[randomIndex].bounds.max.y));
-            Instantiate(enemyPrefab, randomPoint , Quaternion.identity);   
+        var randomIndex = Random.Range(0, spawnPoints.Count);
+        var randomPoint = spawnPoints[randomIndex].position;
+
+        var randomEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+        Instantiate(randomEnemyPrefab, randomPoint, Quaternion.identity);
     }
     private void SpawnEnemies(int noOfEnemies)
     {

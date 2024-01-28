@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour, IDamageable
 {
-
+     [SerializeField] private Animator animator;
      public int MaxHealth = 100;
      public int CurrentHealth;
      public Image HealthBar;
@@ -15,7 +15,7 @@ public class Health : MonoBehaviour, IDamageable
     void Start()
     {
         CurrentHealth = MaxHealth;
-        
+        animator.GetComponent<Animator>();
     }
 
     private void Update()
@@ -28,19 +28,29 @@ public class Health : MonoBehaviour, IDamageable
         
         CurrentHealth -= amount;
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
+        //Hit();
         Debug.Log("Me hicieron daño" + gameObject.name);
         
 
         if (CurrentHealth <= 0) 
         {
             Die();
+            
         }
     }
 
     public void Die()
     {
-        // reproducir animacion de muerte y su logica de este objeto
+        
 
+    }
+
+    public void Hit()
+    {
+        if(animator!= null)
+        {
+            animator.SetTrigger("Hit");
+        }
     }
 
     private void UpdateHealthBar()

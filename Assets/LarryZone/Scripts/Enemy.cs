@@ -4,29 +4,65 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Health _health;
     public float speed;
-    public int damage = 20;
-    
-    // Start is called before the first frame update
-    void Start()
+    public float stoppingDistance; // Nueva variable para la distancia de parada
+    private bool isTargetReached = false; // Nueva variable para verificar si se alcanzó el objetivo
+
+    private void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Backpack");
+        _health = GetComponent<Health>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        MoveTowardsBackpack();
+        if (!isTargetReached)
+        {
+            MoveTowardsBackpack();
+        }
+
+        Die();
     }
+
+    public void Die()
+    {
+        if (_health.CurrentHealth <= 0)
+        {
+            Debug.Log("Me mori" + gameObject.name);
+            ScoreManager.Instance.IncreaseScore();
+            Destroy(gameObject);
+        }
+    }
+
     private void MoveTowardsBackpack()
-    { 
-       var position = transform.position; 
-       Vector2 direction = player.transform.position - position;
-       float randomFactor = Random.Range(0.8f, 1.2f);
-       direction.Normalize();
-       direction *= randomFactor;
-       position += (Vector3)direction * (speed * Time.deltaTime);
-       transform.position = position;
+    {
+        var position = transform.position;
+        Vector2 direction = player.transform.position - position;
+        float randomFactor = Random.Range(0.8f, 1.2f);
+        direction.Normalize();
+        direction *= randomFactor;
+        position += (Vector3)direction * (speed * Time.deltaTime);
+
+        // Calcula la distancia entre el enemigo y el jugador
+        float distanceToPlayer = Vector3.Distance(position, player.transform.position);
+
+        // Si la distancia es menor o igual a la distancia de parada, detiene el movimiento
+        if (distanceToPlayer <= stoppingDistance)
+        {
+            isTargetReached = true;
+        }
+
+        transform.position = position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Backpack"))
+        {
+            Debug.Log("Detengo movimiento");
+            isTargetReached = true;
+        }
     }
 }
