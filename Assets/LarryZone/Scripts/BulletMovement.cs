@@ -8,8 +8,6 @@ public class BulletMovement : MonoBehaviour
     float speed;
     Vector3 target;
     Vector3 direction;
-    public float damage;
-    public float rateOfFire;
     private bool shooting;
     public Transform sprite_;
 

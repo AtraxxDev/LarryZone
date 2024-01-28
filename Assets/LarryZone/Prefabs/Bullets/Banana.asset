@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 598242f7f064c074c857b1168b57e3b3, type: 3}
-  m_Name: Chancla
+  m_Name: Banana
   m_EditorClassIdentifier: 
-  damage: 1
-  rateOfFire: 1
-  cooldown: 1
-  numOfInstances: 1
+  rateOfFire: 0.05
+  cooldown: 0
+  numOfInstances: 3
+  bulletPrefab: {fileID: 3240353518206595693, guid: 281ffe52bbcc51d4cb71ff80d8f760d7, type: 3}

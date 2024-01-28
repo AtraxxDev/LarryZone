@@ -13626,6 +13626,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2135043812560224458, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
+      propertyPath: weaponStats.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c3b102e1582deb6429f3736e0a0bde21, type: 2}
+    - target: {fileID: 2135043812560224458, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
+      propertyPath: weaponStats.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d5821573a79a924a94e0590152985d9, type: 2}
     - target: {fileID: 3385144581196858626, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
       propertyPath: m_Name
       value: PlayerGame
@@ -13676,23 +13684,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
---- !u!1 &3385144581651393468 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3385144581196858626, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
-  m_PrefabInstance: {fileID: 3385144581651393467}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3385144581651393469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3385144581651393468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe14caed5c782e14f88bb0bdd4574475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  currentSpeed: 0
-  bulletPrefab: {fileID: 3240353518206595693, guid: 281ffe52bbcc51d4cb71ff80d8f760d7, type: 3}
