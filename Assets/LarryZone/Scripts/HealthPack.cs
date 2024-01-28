@@ -1,24 +1,34 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthPack : MonoBehaviour
 {
     [SerializeField] private int healAmount_ = 20;
+    [SerializeField] private AudioClip pickupSound; // Agrega el sonido aquí
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Ajusta la etiqueta según tus necesidades
+        if (other.CompareTag("Player"))
         {
-            // Aplica la regeneración de vida al jugador
-
             Health playerHealth = other.GetComponent<Health>();
             if (playerHealth != null)
             {
-                playerHealth.Heal(healAmount_);
-                Destroy(gameObject); // Destruye el botiquín después de ser recogido
+                StartCoroutine(HealAndDestroy(playerHealth));
             }
-
         }
+    }
+
+    private IEnumerator HealAndDestroy(Health playerHealth)
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+
+        if (audioSource != null && pickupSound != null)
+        {
+            audioSource.PlayOneShot(pickupSound);
+            yield return new WaitForSeconds(pickupSound.length);
+        }
+
+        playerHealth.Heal(healAmount_);
+        Destroy(gameObject);
     }
 }

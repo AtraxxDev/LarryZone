@@ -12,6 +12,10 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private GameObject currentBulletPrefab;
     public WeaponStats[] weaponStats = new WeaponStats[3];
 
+    public AudioClip bulletSound; // Agrega el sonido aquí
+    private AudioSource audioSource; // Agrega referencia al componente AudioSource
+    public AudioClip weaponChangeSound;
+
     private void Start()
     {
         for (int i = 0; i < 3; i++)
@@ -20,6 +24,7 @@ public class WeaponManager : MonoBehaviour
         }
 
         SetWeapon(0);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -41,6 +46,9 @@ public class WeaponManager : MonoBehaviour
         {
             StartCoroutine(InstantiateDelay());
             timePassed[currentWeaponType] = 0f;
+
+            PlayBulletSound();
+
         }
         InstantiateDelay();
 
@@ -81,6 +89,9 @@ public class WeaponManager : MonoBehaviour
 
         // Update the currentWeaponType variable with the correct value
         currentWeaponType = weaponType;
+
+        // Play the weapon change sound
+        PlayWeaponChangeSound();
     }
 
     IEnumerator InstantiateDelay()
@@ -101,6 +112,23 @@ public class WeaponManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(weaponStats[currentWeaponType].rateOfFire);
+        }
+    }
+
+    private void PlayBulletSound()
+    {
+        if (audioSource != null && bulletSound != null)
+        {
+            audioSource.PlayOneShot(bulletSound);
+        }
+    }
+
+    private void PlayWeaponChangeSound()
+    {
+        Debug.Log("Playing weapon change sound");
+        if (audioSource != null && weaponChangeSound != null)
+        {
+            audioSource.PlayOneShot(weaponChangeSound);
         }
     }
 

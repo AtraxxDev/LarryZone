@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    
+    public GameObject player;
     [SerializeField] private Health _health;
     public float speed;
     public float stoppingDistance; // Nueva variable para la distancia de parada

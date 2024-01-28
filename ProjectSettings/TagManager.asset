@@ -8,6 +8,7 @@ TagManager:
   - Backpack
   - Lose
   - Pause
+  - NewTarget
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log("Colisione");
         IDamageable damageable = other.GetComponent<IDamageable>();
-        if (damageable != null )
+        if (damageable != null && other.tag != "Player")
         {
             damageable.TakeDamage(damage_);
             Debug.Log("Hice Daño");

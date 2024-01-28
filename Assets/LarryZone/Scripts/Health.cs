@@ -70,6 +70,7 @@ public class Health : MonoBehaviour, IDamageable
                     if (childTransform != null)
                     {
                         childTransform.gameObject.SetActive(true);
+                      
                     }
                 }
 
