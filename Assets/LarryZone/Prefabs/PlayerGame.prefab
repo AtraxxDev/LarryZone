@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1829519930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1829519931}
+  - component: {fileID: 1829519932}
+  m_Layer: 0
+  m_Name: Circle Collider
+  m_TagString: NewTarget
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1829519931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829519930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3385144581196858631}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1829519932
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829519930}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.707307
 --- !u!1 &3385144581196858626
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,6 +84,7 @@ Transform:
   m_Children:
   - {fileID: 1738003089}
   - {fileID: 495965537979270500}
+  - {fileID: 1829519931}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,7 +128,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: -700316268, guid: 9d93793523c996a4bba987bb045a05bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -244,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 4281211208228019310, guid: f8aa8e84aad1bfc4b81ae8e4ab20bf15, type: 3}
       propertyPath: bulletSound
       value: 
-      objectReference: {fileID: 8300000, guid: 12292874b9e7f30438e0a1d18c12f9e2, type: 3}
+      objectReference: {fileID: 8300000, guid: 233d731370db58e4baa76caa7a3f4fb7, type: 3}
     - target: {fileID: 4281211208228019310, guid: f8aa8e84aad1bfc4b81ae8e4ab20bf15, type: 3}
       propertyPath: weaponChangeSound
       value: 

@@ -192,6 +192,7 @@ MonoBehaviour:
   _health: {fileID: 0}
   speed: 1.2
   stoppingDistance: 0.2
+  isTargetReached: 0
 --- !u!1 &6836740591636331998
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +278,7 @@ GameObject:
   - component: {fileID: 3105639306681349670}
   - component: {fileID: 4877798519817057471}
   - component: {fileID: 2309493654061580934}
+  - component: {fileID: 4953054581668564198}
   m_Layer: 0
   m_Name: Vision
   m_TagString: Untagged
@@ -314,7 +316,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.036159
+  m_Radius: 2.1624625
 --- !u!114 &2309493654061580934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +332,27 @@ MonoBehaviour:
   enemy: {fileID: 1806618128937891568}
   initialTarget: {fileID: 0}
   currentTarget: {fileID: 0}
+--- !u!50 &4953054581668564198
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572928483539703223}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &6836740590749334178
 PrefabInstance:
   m_ObjectHideFlags: 0

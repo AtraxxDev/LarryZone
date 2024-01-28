@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Health _health;
     public float speed;
     public float stoppingDistance; // Nueva variable para la distancia de parada
-    private bool isTargetReached = false; // Nueva variable para verificar si se alcanzó el objetivo
+    public bool isTargetReached = false; // Nueva variable para verificar si se alcanzó el objetivo
     private SpriteRenderer spriteRenderer; // Variable para almacenar el componente SpriteRenderer
 
     private void Start()

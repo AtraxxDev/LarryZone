@@ -14316,54 +14316,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1829519930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1829519931}
-  - component: {fileID: 1829519932}
-  m_Layer: 0
-  m_Name: Circle Collider
-  m_TagString: NewTarget
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1829519931
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829519930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3385144581651393468}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1829519932
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829519930}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.707307
 --- !u!1 &1832314297
 GameObject:
   m_ObjectHideFlags: 0
@@ -17246,14 +17198,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2135043812560224458, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
-      propertyPath: bulletSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 233d731370db58e4baa76caa7a3f4fb7, type: 3}
-    - target: {fileID: 3385144581196858624, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
-      objectReference: {fileID: 0}
     - target: {fileID: 3385144581196858626, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
       propertyPath: m_Name
       value: PlayerGame
@@ -17304,11 +17248,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
---- !u!4 &3385144581651393468 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3385144581196858631, guid: 469137c91f538084b8c7e79bce41cbf0, type: 3}
-  m_PrefabInstance: {fileID: 3385144581651393467}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4752800292461722500
 PrefabInstance:
   m_ObjectHideFlags: 0
