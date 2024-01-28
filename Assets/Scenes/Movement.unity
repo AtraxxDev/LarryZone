@@ -496,5 +496,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2848423403163882621, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939216792460581548, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5942790369697045497, guid: f4883a1adf8f2f442b12d259628a74ee, type: 3}
+    - target: {fileID: 7939216792460581548, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939216792460581548, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939216792460581548, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7939216792460581548, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: weaponStats.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 130faa9c667d3e940b59fed4923ba6a0, type: 2}
+    - target: {fileID: 7939216792460581548, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: weaponPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3240353518206595693, guid: 281ffe52bbcc51d4cb71ff80d8f760d7, type: 3}
+    - target: {fileID: 7939216792460581548, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: weaponPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5942790369697045497, guid: f4883a1adf8f2f442b12d259628a74ee, type: 3}
+    - target: {fileID: 7939216792460581548, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: weaponPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 3240353518206595693, guid: f5c64704284e0004f8c73f4b29426a6f, type: 3}
+    - target: {fileID: 8461971872084827906, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106231594714974398, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06cdb6fac4482a647b8e568f38ec9abb, type: 3}

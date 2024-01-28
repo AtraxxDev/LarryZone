@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3240353518206595689}
   - component: {fileID: -3204241310062555028}
   m_Layer: 0
-  m_Name: Banana-Bullet
+  m_Name: Coffee-Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
