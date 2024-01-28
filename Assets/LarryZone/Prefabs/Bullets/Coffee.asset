@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598242f7f064c074c857b1168b57e3b3, type: 3}
   m_Name: Coffee
   m_EditorClassIdentifier: 
-  rateOfFire: 0
-  cooldown: 2
-  numOfInstances: 1
+  rateOfFire: 0.3
+  cooldown: 0.5
+  numOfInstances: 5
   bulletPrefab: {fileID: 3572031284774914637, guid: 350a879bb8c61344fbe291a86c870b2c, type: 3}

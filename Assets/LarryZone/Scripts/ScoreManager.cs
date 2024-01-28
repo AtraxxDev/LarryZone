@@ -9,13 +9,14 @@ public class ScoreManager : MonoBehaviour
 
     private static ScoreManager instance;
 
-    private static int score;
+    public static int score;
     private static string scoreString;
     private static int highScore;
     private static string highScoreString;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private int enemyScoreValue;
-
+    [SerializeField] private TextMeshProUGUI finalScoreText;
+    [SerializeField] private GameObject loseScreen;
     public static ScoreManager Instance
     {
         get
@@ -50,6 +51,7 @@ public class ScoreManager : MonoBehaviour
     {
         OrderNumbers();
         SetScoreText();
+        DisplayScore();
     }
 
     private void SetScoreText()
@@ -82,10 +84,10 @@ public class ScoreManager : MonoBehaviour
         score+=enemyScoreValue;
         if (score <= highScore) return;
         highScore = score;
-        SaveScore();
+        SaveHighScore();
     }
 
-    private void SaveScore()
+    private void SaveHighScore()
     {
         PlayerPrefs.SetInt("HighScore", highScore);
         PlayerPrefs.Save();
@@ -94,6 +96,15 @@ public class ScoreManager : MonoBehaviour
     private void LoadHighScore()
     {
         highScore = PlayerPrefs.GetInt("HighScore");
+    }
+
+    public void DisplayScore()
+    {
+        if (loseScreen.activeSelf)
+        {
+            finalScoreText.text = "Score  " + score;
+        }
+        
     }
     
 }

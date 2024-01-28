@@ -24,11 +24,13 @@ public class WeaponManager : MonoBehaviour
 
     void Update()
     {
-
         // Point towards mouse;
         mouseTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseTarget.z = 0f;
         transform.right = mouseTarget - transform.position;
+
+        // Flip the player sprite based on cursor direction
+        FlipPlayerSprite();
 
         // Shooting
         for (int i = 0; i < 3; i++)
@@ -99,6 +101,29 @@ public class WeaponManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(weaponStats[currentWeaponType].rateOfFire);
+        }
+    }
+
+    private void FlipPlayerSprite()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            SpriteRenderer playerRenderer = player.GetComponent<SpriteRenderer>();
+
+            if (playerRenderer != null)
+            {
+                // Si la posición X del cursor es menor que la posición X del jugador, voltea en X
+                if (mouseTarget.x < player.transform.position.x)
+                {
+                    playerRenderer.flipX = true;
+                }
+                else
+                {
+                    playerRenderer.flipX = false;
+                }
+            }
         }
     }
 }

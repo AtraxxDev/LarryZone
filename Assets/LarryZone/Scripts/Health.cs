@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,18 +51,28 @@ public class Health : MonoBehaviour, IDamageable
     public void Die()
     {
         isGamePaused = true;
-        Time.timeScale = 0f;
+        
 
         switch (characterType)
         {
             case CharacterType.Player:
                 Debug.Log("Player ha muerto");
+                Time.timeScale = 0f;
+                ScenesManager.Instance.GameOver();
                 // Si el personaje que muere es el jugador, busca un objeto con tag "Lose" y actívalo
                 GameObject loseObject = GameObject.FindGameObjectWithTag("Lose");
+
                 if (loseObject != null)
                 {
-                    loseObject.SetActive(true);
+
+                    // Busca el objeto hijo con el nombre "NombreDelHijo" y actívalo/desactívalo
+                    Transform childTransform = loseObject.transform.Find("PanelLose");
+                    if (childTransform != null)
+                    {
+                        childTransform.gameObject.SetActive(true);
+                    }
                 }
+
                 break;
 
             case CharacterType.Gorilla:
@@ -71,12 +82,22 @@ public class Health : MonoBehaviour, IDamageable
 
             case CharacterType.Backpack:
                 Debug.Log("Backpack ha muerto");
+                Time.timeScale = 0f;
+                ScenesManager.Instance.GameOver();
                 // Si el personaje que muere es el jugador, busca un objeto con tag "Lose" y actívalo
-                GameObject loseObjectBackpack = GameObject.FindGameObjectWithTag("Lose");
-                if (loseObjectBackpack != null)
+                GameObject losebackpackObject = GameObject.FindGameObjectWithTag("Lose");
+
+                if (losebackpackObject != null)
                 {
-                    loseObjectBackpack.SetActive(true);
+
+                    // Busca el objeto hijo con el nombre "NombreDelHijo" y actívalo/desactívalo
+                    Transform childTransform = losebackpackObject.transform.Find("PanelLose");
+                    if (childTransform != null)
+                    {
+                        childTransform.gameObject.SetActive(true);
+                    }
                 }
+
                 break;
 
             default:

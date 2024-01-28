@@ -7,8 +7,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float speed;
     [SerializeField]private float currentSpeed;
+    [SerializeField]private Animator animator;
     private void Start()
     {
+        
         currentSpeed = speed;
     }
 
@@ -22,6 +24,20 @@ public class PlayerMovement : MonoBehaviour
         playerInput = Vector2.ClampMagnitude(playerInput, 1f);
         Vector3 velocity = new Vector3(playerInput.x, playerInput.y, 0.0f) * currentSpeed;
         transform.position += velocity * Time.deltaTime;
+
+        // Reproducir la animación correspondiente
+        if (playerInput.magnitude > 0.1f)
+        {
+            // Si hay movimiento, reproducir la animación "walk"
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            // Si no hay movimiento, reproducir la animación "idle"
+            animator.SetBool("IsWalking", false);
+        }
+
+        
     }
 
     public void ApplySpeedBoost(float speedBoost, float duration)
