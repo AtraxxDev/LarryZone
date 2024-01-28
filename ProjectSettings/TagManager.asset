@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Backpack
+  - Lose
+  - Pause
   layers:
   - Default
   - TransparentFX
