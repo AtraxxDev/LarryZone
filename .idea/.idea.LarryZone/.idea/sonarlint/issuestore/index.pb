@@ -17,3 +17,9 @@ T
 $Assets/LarryZone/Scripts/WaveText.cs,f\d\fd2a5d76c399d0f34cff7345347cc00c917151f4
 Y
 )ProjectSettings/ShaderGraphSettings.asset,0\4\043e928ecddd815d527d3550ae95b431e93afd30
+Y
+)Assets/LarryZone/Scripts/WeaponManager.cs,d\b\db0cba42e9ee3bfb1efadee8b767c15a14b430b0
+Z
+*Assets/LarryZone/Scripts/BackgroundLoop.cs,1\f\1f02504396a9770c3286257a8004129a5a0e3b21
+B
+Assets/MainMenu.cs,9\d\9d63f37bb42d0195390ad4e2cb09da5990ab6964
