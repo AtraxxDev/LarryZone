@@ -101,8 +101,14 @@ public class EnemySpawner : MonoBehaviour
         var randomIndex = Random.Range(0, spawnPoints.Count);
         var randomPoint = spawnPoints[randomIndex].position;
 
+        // Ajusta el volteo del sprite solo si está en el lado positivo del eje X
+        bool shouldFlip = randomPoint.x > transform.position.x;
+
         var randomEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
         Instantiate(randomEnemyPrefab, randomPoint, Quaternion.identity);
+
+        
+
     }
     private void SpawnEnemies(int noOfEnemies)
     {

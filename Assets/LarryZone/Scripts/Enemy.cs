@@ -9,11 +9,14 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float stoppingDistance; // Nueva variable para la distancia de parada
     private bool isTargetReached = false; // Nueva variable para verificar si se alcanzó el objetivo
+    private SpriteRenderer spriteRenderer; // Variable para almacenar el componente SpriteRenderer
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Backpack");
         _health = GetComponent<Health>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Obtén el componente SpriteRenderer
+        FlipSpriteIfNeeded(); // Llama a la función para voltear el sprite si es necesario
     }
 
     void Update()
@@ -26,11 +29,11 @@ public class Enemy : MonoBehaviour
         Die();
     }
 
-    public void Die()
+    private void Die()
     {
         if (_health.CurrentHealth <= 0)
         {
-            Debug.Log("Me mori" + gameObject.name);
+            Debug.Log("Me morí" + gameObject.name);
             ScoreManager.Instance.IncreaseScore();
             Destroy(gameObject);
         }
@@ -63,6 +66,16 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("Detengo movimiento");
             isTargetReached = true;
+        }
+    }
+
+    // Función para voltear el sprite si es necesario
+    private void FlipSpriteIfNeeded()
+    {
+        if (transform.position.x > player.transform.position.x)
+        {
+            // Si el enemigo está en el lado positivo del eje X, voltear el sprite
+            spriteRenderer.flipX = true;
         }
     }
 }

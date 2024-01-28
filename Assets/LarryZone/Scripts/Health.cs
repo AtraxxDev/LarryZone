@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour, IDamageable
 {
-     [SerializeField] private Animator animator;
+   //  [SerializeField] private Animator animator;
      public int MaxHealth = 100;
      public int CurrentHealth;
      public Image HealthBar;
@@ -15,7 +15,7 @@ public class Health : MonoBehaviour, IDamageable
     void Start()
     {
         CurrentHealth = MaxHealth;
-        animator.GetComponent<Animator>();
+      //  animator.GetComponent<Animator>();
     }
 
     private void Update()
@@ -45,13 +45,13 @@ public class Health : MonoBehaviour, IDamageable
 
     }
 
-    public void Hit()
+   /* public void Hit()
     {
         if(animator!= null)
         {
             animator.SetTrigger("Hit");
         }
-    }
+    }*/
 
     private void UpdateHealthBar()
     {

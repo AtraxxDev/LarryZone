@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6836740589941827500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.32, y: -0.32, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1906026649404806799}
@@ -170,7 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c02ef531e9e5d4bac234b50873148a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   MaxHealth: 100
   CurrentHealth: 0
   HealthBar: {fileID: 1906026649807433670}
@@ -237,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6836740589941827503}
-  _damage: 3
+  _damage: 5
   damageInterval: 0.5
 --- !u!61 &6836740591636332000
 BoxCollider2D:
